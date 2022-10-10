@@ -18,6 +18,32 @@ html {
   scroll-behavior: smooth;
 }
 
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 3px 3px 10px #000;
+  z-index: 100;
+}
+.float:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
 .hide {
   display: none;
 }
@@ -47,7 +73,7 @@ body .arrow-top {
   width: 60px;
   height: 60px;
   position: fixed;
-  bottom: 60px;
+  bottom: 160px;
   right: 40px;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 3px 3px 10px #000;
@@ -59,6 +85,11 @@ body .arrow-top {
 }
 body .arrow-top:hover {
   background-color: #CBCBCB;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 body .arrow-top img {
   width: 100%;
