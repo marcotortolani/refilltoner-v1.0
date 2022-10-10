@@ -626,7 +626,7 @@ body .nav-bar .nav-menu ul li a:click {
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 .contact .data-contact .data .social-net h4 {
   margin-bottom: 15px;
@@ -670,7 +670,7 @@ footer {
 footer h6 {
   margin: 20px;
   font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1.2rem;
   text-transform: none;
   letter-spacing: 1.5px;

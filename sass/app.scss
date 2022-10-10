@@ -18,6 +18,7 @@
     ::-webkit-scrollbar {
         display: none;
     }
+    
 }
 html {
     scroll-behavior: smooth;
@@ -784,7 +785,7 @@ body{
                 margin: 0;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 h4{
                     margin-bottom: 15px;
                     font-family: $fontText;
@@ -818,7 +819,7 @@ body{
         position: relative;
         bottom: 20px;
         background-color: $colorText;
-}
+    }
 }
 
 footer{
@@ -836,7 +837,7 @@ footer{
     h6{
         margin: 20px;
         font-family: $fontCredits;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1.2rem;
         text-transform: none;
         letter-spacing: 1.5px;
