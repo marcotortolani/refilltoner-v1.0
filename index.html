@@ -26,6 +26,9 @@
     <i class="fa fa-whatsapp my-float"></i>
     </a>
 
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
     <link rel="stylesheet" href="./sass/app.css">
 </head>
 <body>
@@ -82,13 +85,43 @@
     <div class="home" id="home">
 
         <div class="wraper-slider">
-            <div class="image">
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./imgs/carrousel/carrousel_01.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/carrousel/carrousel_02.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/carrousel/carrousel_03.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./imgs/carrousel/carrousel_04.jpg" alt="">
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="fade">
+                    <div class="fade-top"></div>
+                    <div class="fade-bottom"></div>
+                </div>
+            
+            </div>
+
+
+
+            <!-- <div class="image">
                 <img src="./imgs/carrousel_01.jpg" alt="">
-            </div>
-            <div class="fade">
-                <div class="fade-top"></div>
-                <div class="fade-bottom"></div>
-            </div>
+            </div> -->
+
+
+
+
+            
         </div>
 
 
@@ -107,6 +140,8 @@
 
 
     <div class="about" id="about">
+
+        <div class="back-navbar"></div>
 
         <div class="title">
             <h4>nosotros</h4>
@@ -129,6 +164,8 @@
     </div>
 
     <div class="services" id="services">
+
+        <div class="back-navbar"></div>
 
         <div class="title">
             <h4>servicios</h4>
@@ -182,6 +219,8 @@
 
 
     <div class="contact " id="contact">
+
+        <div class="back-navbar"></div>
 
         <div class="title">
             <h4>contacto</h4>
@@ -237,9 +276,8 @@
                 <div class="phones">
                     <img src="./imgs/icon_phone.png" alt="">
                     <div class="phones-data">
-                        <h4>Teléfonos</h4>
-                        <h5>Atención - (011) 4758 7671</h5>
-                        <h5>Ventas - (011) 15 6784 8386</h5>
+                        <h4>Teléfono</h4>
+                        <h5>(011) 4758 7671</h5>
                     </div>
                 </div>
     
@@ -286,5 +324,28 @@
 
 
     <script src="./script.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 </body>
 </html>

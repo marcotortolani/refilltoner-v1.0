@@ -254,6 +254,72 @@ body{
 
 
 
+
+
+
+
+// html,
+//       body {
+//         position: relative;
+//         //height: 100%;
+//       }
+
+//     //   body {
+//     //     //background: #eee;
+//     //     //font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//     //     //font-size: 14px;
+//     //     //color: #000;
+//     //     //margin: 0;
+//     //     //padding: 0;
+//     //   }
+
+//       .swiper {
+//         width: 100%;
+//         height: 100%;
+//         height: 500px;
+//       }
+
+//       .swiper-slide {
+//         text-align: center;
+//         font-size: 18px;
+//         //background: #fff;
+
+//         /* Center slide text vertically */
+//         display: -webkit-box;
+//         display: -ms-flexbox;
+//         display: -webkit-flex;
+//         display: flex;
+//         -webkit-box-pack: center;
+//         -ms-flex-pack: center;
+//         -webkit-justify-content: center;
+//         justify-content: center;
+//         -webkit-box-align: center;
+//         -ms-flex-align: center;
+//         -webkit-align-items: center;
+//         align-items: center;
+//       }
+
+//       .swiper-slide img {
+//         display: block;
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .home,
 .about,
 .services,
@@ -261,6 +327,15 @@ body{
     width: 100%;
     height: 100vh;
 
+    .back-navbar{
+        //z-index: 100;
+        width: 100vw;
+        height: 10vh;
+        position: absolute;
+
+        background-color: $colorBack;
+        //background-color: red;
+    }
 }
 
 .home{
@@ -269,34 +344,48 @@ body{
     align-items: center;
     background-color: $colorBackHome;
 
-    .wraper-slider{
-        z-index: 1;
-        width: 100vw;
-        height: 500px;
-        position: relative;
-        //position: static;
-        //position: absolute;
-        top: 100px;
 
-        //background: #fff url(/imgs/carrousel_01.jpg) center center/cover no-repeat fixed;
-        //top: ;
-        .image{
-            height: 100%;
-            img{
-                width: 100vw;
+    .swiper{
+        z-index: 1;
+            width: 100vw;
+            height: 500px;
+            position: relative;
+            //position: static;
+            //position: absolute;
+            top: 200px;
+
+        .swiper-wrapper{
+            z-index: 1;
+            width: 100vw;
+            height: 700px;
+            //position: relative;
+            //position: static;
+            //position: absolute;
+            //top: 200px;
+    
+            //background: #fff url(/imgs/carrousel_01.jpg) center center/cover no-repeat fixed;
+            //top: ;
+            .swiper-slide{
                 height: 100%;
-                position: relative;
-                top: 100px;
-                object-fit: cover;
+                //background-color: #25d366;
+                img{
+                    width: 100vw;
+                    height: 100%;
+                    position: relative;
+                    top: 0px;
+                    object-fit: cover;
+                }
+                //background-image: url();
             }
-            //background-image: url();
-         
+            
         }
+
         .fade{
+            z-index: 10;
             width: 100vw;
             height: 500px;
             position: absolute;
-            top: 100px;
+            top: 0px;
 
             background-color: rgba(0, 62, 84, 0.5);
 
@@ -313,6 +402,8 @@ body{
             }
         }
     }
+
+    
 
     .slogan{
         z-index: 50;

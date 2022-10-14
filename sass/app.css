@@ -202,6 +202,15 @@ body .nav-gray {
   width: 100%;
   height: 100vh;
 }
+.home .back-navbar,
+.about .back-navbar,
+.services .back-navbar,
+.contact .back-navbar {
+  width: 100vw;
+  height: 10vh;
+  position: absolute;
+  background-color: #333333;
+}
 
 .home {
   display: flex;
@@ -209,39 +218,45 @@ body .nav-gray {
   align-items: center;
   background-color: #003E54;
 }
-.home .wraper-slider {
+.home .swiper {
   z-index: 1;
   width: 100vw;
   height: 500px;
   position: relative;
-  top: 100px;
+  top: 200px;
 }
-.home .wraper-slider .image {
+.home .swiper .swiper-wrapper {
+  z-index: 1;
+  width: 100vw;
+  height: 700px;
+}
+.home .swiper .swiper-wrapper .swiper-slide {
   height: 100%;
 }
-.home .wraper-slider .image img {
+.home .swiper .swiper-wrapper .swiper-slide img {
   width: 100vw;
   height: 100%;
   position: relative;
-  top: 100px;
+  top: 0px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.home .wraper-slider .fade {
+.home .swiper .fade {
+  z-index: 10;
   width: 100vw;
   height: 500px;
   position: absolute;
-  top: 100px;
+  top: 0px;
   background-color: rgba(0, 62, 84, 0.5);
 }
-.home .wraper-slider .fade .fade-top, .home .wraper-slider .fade .fade-bottom {
+.home .swiper .fade .fade-top, .home .swiper .fade .fade-bottom {
   width: 100%;
   height: 50%;
 }
-.home .wraper-slider .fade .fade-top {
+.home .swiper .fade .fade-top {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #003E54 85%);
 }
-.home .wraper-slider .fade .fade-bottom {
+.home .swiper .fade .fade-bottom {
   background: linear-gradient(0deg, #003E54 15%, rgba(0, 0, 0, 0) 100%);
 }
 .home .slogan {
