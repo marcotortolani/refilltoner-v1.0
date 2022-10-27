@@ -4,13 +4,13 @@ const logoBrand = document.getElementById("logo");
 const lineWork = document.querySelector(".line-work");
 
 
-console.log(window);
+
 
 const changeNavBar = (e) =>{
     // console.log(window.scrollY);
     // console.log("dentro de la funcion");
     // console.log(e);
-    console.log(window.scrollY);
+    
     if(window.scrollY > 50){
         navBar.classList.add("nav-gray");
         logoBrand.classList.add("scale-down");
