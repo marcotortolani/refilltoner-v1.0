@@ -272,7 +272,7 @@ body .nav-gray {
   color: #fff;
 }
 .home .buttons {
-  z-index: 5000000;
+  z-index: 50000;
   position: absolute;
   bottom: 120px;
   display: flex;
