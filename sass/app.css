@@ -1,3 +1,19 @@
+@-webkit-keyframes discloseMenu {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes discloseMenu {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -67,6 +83,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* BURGUER MENU UNABLE AND SETTING*/
 }
 body .arrow-top {
   z-index: 100;
@@ -99,9 +116,10 @@ body .nav-bar {
   z-index: 100;
   width: 100vw;
   height: 10vh;
+  padding: 0 50px;
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   transition: background-color 0.5s ease-in-out;
   -webkit-transition: background-color 0.5s ease-in-out;
@@ -113,8 +131,9 @@ body .nav-bar a {
   text-decoration: none;
 }
 body .nav-bar .brand {
+  width: 300px;
   height: 100%;
-  margin-right: 200px;
+  margin-right: 0px;
   display: flex;
   align-items: center;
 }
@@ -173,9 +192,11 @@ body .nav-bar .nav-menu ul {
   align-items: center;
 }
 body .nav-bar .nav-menu ul li {
+  min-width: 75px;
   margin: 0 20px;
   list-style: none;
   border-style: none;
+  text-align: center;
 }
 body .nav-bar .nav-menu ul li a {
   font-family: "Rubik", sans-serif;
@@ -190,6 +211,116 @@ body .nav-bar .nav-menu ul li a:hover {
 }
 body .nav-bar .nav-menu ul li a:click {
   color: #009bdc;
+}
+body .nav-bar {
+  /* *****************************************************************/
+  /* **************************************************************** */
+}
+body .nav-bar .menu-mobile {
+  position: fixed;
+  top: 5px;
+  right: 50px;
+  z-index: 2000000;
+  flex-direction: column;
+}
+body .nav-bar .menu-mobile .disclose-menu {
+  display: none;
+}
+body .nav-bar .menu-mobile span {
+  z-index: 2000000;
+  background: #fff;
+  border-radius: 10px;
+  height: 5px;
+  min-height: 5px;
+  margin: 7px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+body .nav-bar .menu-mobile span:nth-of-type(1) {
+  width: 50px;
+}
+body .nav-bar .menu-mobile span:nth-of-type(2) {
+  width: 50px;
+}
+body .nav-bar .menu-mobile span:nth-of-type(3) {
+  width: 35px;
+}
+body .nav-bar .menu-mobile input[type=checkbox] {
+  display: none;
+}
+body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(12px, 12px);
+}
+body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(20px, -12px) rotateZ(45deg) rotateY(90deg);
+}
+body .nav-bar .menu-mobile input[type=checkbox]:checked ~ .disclose-menu {
+  display: flex;
+  animation: discloseMenu 1s ease 0s 1 normal forwards;
+  -webkit-animation: discloseMenu 1s ease 0s 1 normal forwards;
+}
+body .nav-bar .disclose-menu {
+  /*display: none;
+  */
+  margin-top: 0;
+  position: fixed;
+  /*z-index: 4;
+  */
+  top: 0px;
+  right: 0;
+  width: 100vw;
+  height: 55vh;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+body .nav-bar .disclose-menu ul {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  position: absolute;
+  top: 50px;
+  list-style: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .nav-bar .disclose-menu ul li {
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: center; */
+  height: 2vh;
+  border: 1px solid transparent; /* le da grosor, solido y transparencia para que las palabras queden quietas al hacer el hover */
+  transition: 0.3s;
+  margin-bottom: 50px;
+}
+body .nav-bar .disclose-menu ul li :hover {
+  color: #E1007A;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body .nav-bar .disclose-menu ul li a {
+  z-index: 5;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 2em;
+  color: #fff;
+}
+body .nav-bar .disclose-menu ul li a :hover {
+  color: #E1007A;
 }
 body .nav-gray {
   background-color: #333333;
@@ -272,7 +403,7 @@ body .nav-gray {
   color: #fff;
 }
 .home .buttons {
-  z-index: 50000;
+  z-index: 50;
   position: absolute;
   bottom: 120px;
   display: flex;
@@ -331,6 +462,7 @@ body .nav-gray {
 }
 .about .title h4 {
   font-size: 15rem;
+  font-size: 16.6666666667vw;
   text-transform: uppercase;
   text-align: center;
   color: #333333;
@@ -397,6 +529,7 @@ body .nav-gray {
 }
 .services .title h4 {
   font-size: 15rem;
+  font-size: 16.6666666667vw;
   text-transform: uppercase;
   text-align: center;
   color: #333333;
@@ -470,6 +603,7 @@ body .nav-gray {
 }
 .contact .title h4 {
   font-size: 15rem;
+  font-size: 16.6666666667vw;
   text-transform: uppercase;
   text-align: center;
   color: #333333;
@@ -757,4 +891,14 @@ footer h6 {
   text-transform: none;
   letter-spacing: 1.5px;
   color: #009DDF;
+}
+
+@media screen and (max-width: 1100px) {
+  .nav-bar .nav-menu {
+    display: none;
+  }
+  .nav-bar .menu-mobile {
+    display: flex;
+    cursor: pointer;
+  }
 }/*# sourceMappingURL=app.css.map */

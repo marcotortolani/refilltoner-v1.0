@@ -1,6 +1,20 @@
 
 @import 'variables';
 
+
+@keyframes discloseMenu{
+    0%{
+        top: -500px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+
+
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -117,9 +131,11 @@ body{
         z-index: 100;
         width: 100vw;
         height: 10vh;
+        //margin: 0 120px;
+        padding: 0 50px;
         position: fixed;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: flex-end;
         //background-color: rgba(0, 0, 0, 0);
         //background-color: tomato;
@@ -130,12 +146,15 @@ body{
             text-decoration: none;
         }
         .brand{
+            width: 300px;
             height: 100%;
             //margin: 10px;
             //margin-top: 50px;
-            margin-right: 200px;
+            margin-right: 0px;
             display: flex;
             align-items: center;
+
+            //background-color: #25d366;
         
 
             //background-color: aliceblue;
@@ -164,6 +183,8 @@ body{
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+
+                
                 .name-logo{
                     
                     font-family: $fontText;
@@ -209,9 +230,11 @@ body{
                 //margin-bottom: 10px;
         
                 & li{
+                    min-width: 75px;
                     margin: 0 20px;
                     list-style: none;
                     border-style: none;
+                    text-align: center;
                 
                 
                     & a{
@@ -220,6 +243,7 @@ body{
                         font-weight: 400;
                         text-decoration: none;
                         text-transform: uppercase;
+                        
                         color: $colorText;
                         
                         
@@ -244,7 +268,173 @@ body{
         -moz-transition: background-color 0.5s ease-in-out;
         -ms-transition: background-color 0.5s ease-in-out;
         -o-transition: background-color 0.5s ease-in-out;
+    }
+
+    /* BURGUER MENU UNABLE AND SETTING*/
+    .nav-bar{
+        
+        .menu-mobile {
+            //width: 60px;
+            
+            position: fixed;
+            top: 5px;
+            right: 50px;
+            z-index: 2000000;
+            //display: none;
+            //display: flex;
+            flex-direction:column;
+
+            //background-color: #25d366;
+            .disclose-menu{
+                display: none;
+            }
+
+            span{
+                //background: #4C9AD3;
+              z-index: 2000000;
+              background: $colorText;
+              border-radius:10px;
+              height:5px;
+              min-height: 5px;
+              margin: 7px 0;
+              transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            
+            }
+        }
+        
+
+        .menu-mobile span:nth-of-type(1){
+            width:50px;
+          }
+      
+          .menu-mobile span:nth-of-type(2){
+            width:50px;
+          }
+      
+          .menu-mobile span:nth-of-type(3){
+            width:35px;
+          } 
+          .menu-mobile input[type="checkbox"]{
+            display:none;
+          }
+      
+          .menu-mobile input[type="checkbox"]:checked ~ span:nth-of-type(1){
+            transform-origin:bottom;
+            transform:rotatez(45deg) translate(12px,12px)
+          }
+      
+      
+          .menu-mobile input[type="checkbox"]:checked ~ span:nth-of-type(2){
+            transform-origin:top;
+            transform:rotatez(-45deg)
+          }
+      
+      
+          .menu-mobile input[type="checkbox"]:checked ~ span:nth-of-type(3){
+            transform-origin:bottom;
+            width:50%;
+            transform: translate(20px,-12px) rotateZ(45deg) rotateY(90deg);
+            //transform: rotateY(90deg);
+        
+          }
+      
+
+          .menu-mobile input[type="checkbox"]:checked ~ .disclose-menu{
+                  display: flex;
+                  //animation-name: discloseMenu;
+                  //animation-duration: 1s;
+                  //animation-iteration-count: initial;
+                  //animation-direction: alternate;
+                  animation: discloseMenu 1s ease 0s 1 normal forwards;
+                  -webkit-animation: discloseMenu 1s ease 0s 1 normal forwards;
 }
+
+            
+            
+      
+      
+      
+          /* *****************************************************************/
+      
+          .disclose-menu{
+              /*display: none;
+              *///z-index: 2;
+              margin-top: 0;
+              position: fixed;
+              /*z-index: 4;
+              */top: 0px;
+              right: 0;
+              //width: 200px;
+              width: 100vw;
+              //max-width: 350px;
+              height: 55vh;
+              //max-height: 250px;
+              //background: rgba(darken($colorBackTitle, 70%), 60%);
+              //opacity: 70%;
+              background: rgba(0, 0, 0, 0.2);
+              backdrop-filter: blur(15px);
+              -webkit-backdrop-filter: blur(15px);
+              //padding: 10px 30px;
+              //padding-top: 20vh;
+              flex-direction: column;
+              justify-content: space-between;
+              align-items: center;
+              
+              ul{
+                /* display: flex;
+                justify-content: space-between;
+                align-items: center; */
+                //margin-bottom: 150px;
+                position: absolute;
+                top: 50px;
+                list-style: none;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+          
+          
+                li{
+                    //margin: 0 0px;
+                    /* display: flex;
+                    justify-content: flex-start;
+                    align-items: center; */
+                    height: 2vh;
+                    border: 1px solid transparent; /* le da grosor, solido y transparencia para que las palabras queden quietas al hacer el hover */
+                    transition: 0.3s;
+                    margin-bottom: 50px;
+                    //color: rgb(129, 196, 255);
+
+                    :hover{
+                        color: $colorMagenta; 
+                        width: fit-content;
+                    }
+
+                    a{
+                        z-index: 5;
+                        font-family: $fontTitle; 
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        font-size: 2em;
+                        color: $colorText;
+                        //color: rgb(151, 205, 253);
+                        
+                  
+                        & :hover{
+                          color: $colorMagenta; 
+                        }
+                    
+                    
+                    }
+              
+                }
+            }
+            
+}
+    
+        /* **************************************************************** */
+    }
 
     .nav-gray{
         background-color: $colorBack;
@@ -421,7 +611,7 @@ body{
     }
 
     .buttons{
-        z-index: 50000;
+        z-index: 50;
         position: absolute;
         bottom: 120px;
 
@@ -485,9 +675,11 @@ body{
         padding-top: 40px;
         height: calc(120px + 10vh) ;
         background-color: $colorBackTitle;
+        //background-color: #386aa0;
 
         h4{
             font-size: 15rem;
+            font-size: calc(100vw / 6) ;
             text-transform: uppercase;
             text-align: center;
             color: $colorBack;
@@ -570,6 +762,7 @@ body{
 
         h4{
             font-size: 15rem;
+            font-size: calc(100vw / 6) ;
             text-transform: uppercase;
             text-align: center;
             color: $colorBack;
@@ -662,6 +855,7 @@ body{
 
         h4{
             font-size: 15rem;
+            font-size: calc(100vw / 6) ;
             text-transform: uppercase;
             text-align: center;
             color: $colorBack;
@@ -1011,6 +1205,62 @@ footer{
 
 
 
+
+
+
+
+// MEDIA QUERIES - RESPONSIVE
+
+
+@media screen and (max-width: 350px) {
+}
+
+@media screen and (max-width: 415px) {
+}
+
+
+@media screen and (max-width: 500px) {
+}
+
+@media screen and (max-width: 700px) {
+}
+
+
+@media screen and (max-width: 900px) {
+}
     
+
+@media screen and (max-width: 1100px) {
+    
+    .nav-bar{
+        .nav-menu{
+            display: none;
+        }
+    
+        
+        .menu-mobile{
+            display: flex;
+            
+            //width:40px;
+            cursor:pointer;   
+            //margin-bottom: 140px;
+        }
+    }
+    
+
+
+}
+    
+@media screen and (max-width: 1200px) {
+
+    // .about, .services, .contact{
+    //     .title{
+    //         h4{
+    //             font-size: 10rem;
+    //             font-size: calc(100vw / 6) ;
+    //         }
+    //     }
+    // }
+}
 
 
