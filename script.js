@@ -1,44 +1,65 @@
-// const body = document.querySelector("body");
+const body = document.querySelector("body");
 const navBar = document.querySelector(".nav-bar");
 const logoBrand = document.getElementById("logo");
 const lineWork = document.querySelector(".line-work");
+const arrowTop = document.querySelector(".arrow-top");
 
 
-
+let scrollYBefore = 0;
 
 const changeNavBar = (e) =>{
     // console.log(window.scrollY);
     // console.log("dentro de la funcion");
     // console.log(e);
-    
+
+
+    if(window.scrollY >= scrollYBefore ){
+        scrollYBefore = window.scrollY;
+
+        if(window.scrollY > 350){
+            
+            navBar.classList.remove("sliceDown");
+            navBar.classList.add("sliceUp");
+            navBar.classList.add("hide");
+        }
+        
+    }else{
+        scrollYBefore = window.scrollY;
+        
+        navBar.classList.remove("hide");
+        navBar.classList.add("sliceDown");
+        navBar.classList.remove("sliceUp");
+    }
+
     if(window.scrollY > 50){
         navBar.classList.add("nav-gray");
         logoBrand.classList.add("scale-down");
         lineWork.classList.add("fade-out");
+        
         //colorNav.style.opacity = 0.8;
     }
-    // if(window.scrollY > 150){
-    //     colorNav.style.opacity = 0.5;
-    // }
-    // if(window.scrollY > 200){
-    //     colorNav.style.opacity = 0.2;
-    //     //navBar.style.opacity = '0.2';
-    //     console.log("scroll > 160");
-    // }
-
-
 
     if(window.scrollY < 50){
         navBar.classList.remove("nav-gray");
         logoBrand.classList.remove("scale-down");
         lineWork.classList.remove("fade-out");
     }
+
+    if(window.scrollY > 350){
+        arrowTop.classList.remove("hide");
+    }
+    if(window.scrollY < 350){
+        arrowTop.classList.add("hide");
+    }
+
+
 }
 
     
 
 
 window.addEventListener("scroll", e => changeNavBar(e));
+
 
 
 

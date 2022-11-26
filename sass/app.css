@@ -14,6 +14,38 @@
     top: 0px;
   }
 }
+@-webkit-keyframes sliceDownNavBar {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes sliceDownNavBar {
+  0% {
+    top: -500px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@-webkit-keyframes sliceUpNavBar {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -500px;
+  }
+}
+@keyframes sliceUpNavBar {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -500px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -61,7 +93,7 @@ html {
 }
 
 .hide {
-  display: none;
+  opacity: 0;
 }
 
 .fade-out {
@@ -99,14 +131,20 @@ body .arrow-top {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: opacity 500ms ease-in-out;
+  -webkit-transition: opacity 500ms ease-in-out;
+  -moz-transition: opacity 500ms ease-in-out;
+  -ms-transition: opacity 500ms ease-in-out;
+  -o-transition: opacity 500ms ease-in-out;
 }
 body .arrow-top:hover {
-  background-color: #CBCBCB;
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
+  transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  -o-transform: scale(1.15);
 }
 body .arrow-top img {
   width: 100%;
@@ -116,23 +154,24 @@ body .nav-bar {
   z-index: 100;
   width: 100vw;
   height: 10vh;
+  max-height: 60px;
   padding: 0 50px;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  transition: background-color 0.5s ease-in-out;
-  -webkit-transition: background-color 0.5s ease-in-out;
-  -moz-transition: background-color 0.5s ease-in-out;
-  -ms-transition: background-color 0.5s ease-in-out;
-  -o-transition: background-color 0.5s ease-in-out;
+  transition: opacity 250ms ease-in-out;
+  -webkit-transition: opacity 250ms ease-in-out;
+  -moz-transition: opacity 250ms ease-in-out;
+  -ms-transition: opacity 250ms ease-in-out;
+  -o-transition: opacity 250ms ease-in-out;
 }
 body .nav-bar a {
   text-decoration: none;
 }
 body .nav-bar .brand {
   width: 300px;
-  height: 100%;
+  height: 60px;
   margin-right: 0px;
   display: flex;
   align-items: center;
@@ -217,6 +256,8 @@ body .nav-bar {
   /* **************************************************************** */
 }
 body .nav-bar .menu-mobile {
+  width: 50px;
+  height: 50px;
   position: fixed;
   top: 5px;
   right: 50px;
@@ -232,17 +273,17 @@ body .nav-bar .menu-mobile span {
   border-radius: 10px;
   height: 5px;
   min-height: 5px;
-  margin: 7px 0;
+  margin: 6px 0;
   transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 body .nav-bar .menu-mobile span:nth-of-type(1) {
-  width: 50px;
+  width: 40px;
 }
 body .nav-bar .menu-mobile span:nth-of-type(2) {
-  width: 50px;
+  width: 40px;
 }
 body .nav-bar .menu-mobile span:nth-of-type(3) {
-  width: 35px;
+  width: 30px;
 }
 body .nav-bar .menu-mobile input[type=checkbox] {
   display: none;
@@ -323,15 +364,30 @@ body .nav-bar .disclose-menu ul li a :hover {
   color: #E1007A;
 }
 body .nav-gray {
-  background-color: #333333;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(5px);
+}
+body .hide {
+  opacity: 0;
+}
+body .sliceDown {
+  animation: sliceDownNavBar 250ms ease-in-out normal;
+  -webkit-animation: sliceDownNavBar 250ms ease-in-out normal;
+}
+body .sliceUp {
+  animation: sliceUpNavBar 250ms ease-in-out normal;
+  -webkit-animation: sliceUpNavBar 250ms ease-in-out normal;
 }
 
 .home,
 .about,
 .services,
 .contact {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  min-height: 800px;
 }
 .home .back-navbar,
 .about .back-navbar,
@@ -344,6 +400,9 @@ body .nav-gray {
 }
 
 .home {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -352,7 +411,8 @@ body .nav-gray {
 .home .swiper {
   z-index: 1;
   width: 100vw;
-  height: 500px;
+  height: 100vh;
+  max-height: 500px;
   position: relative;
   top: 200px;
 }
@@ -375,7 +435,8 @@ body .nav-gray {
 .home .swiper .fade {
   z-index: 10;
   width: 100vw;
-  height: 500px;
+  height: 100vh;
+  max-height: 500px;
   position: absolute;
   top: 0px;
   background-color: rgba(0, 62, 84, 0.5);
@@ -502,20 +563,11 @@ body .nav-gray {
   margin: 10px 0;
   text-align: justify;
 }
-.about .line {
-  width: 50vw;
-  height: 2px;
-  position: relative;
-  bottom: -100px;
-  background-color: #fff;
-  border-radius: 1px;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -o-border-radius: 1px;
-}
 
 .services {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: #333333;
   display: flex;
   flex-direction: column;
@@ -545,11 +597,13 @@ body .nav-gray {
 .services .cards-services {
   width: 90vw;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 .services .cards-services .card {
   width: 30%;
+  min-width: 366px;
   height: 230px;
   margin: 15px;
   background-color: #CBCBCB;
@@ -590,6 +644,9 @@ body .nav-gray {
 }
 
 .contact {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: #333333;
   display: flex;
   flex-direction: column;
@@ -879,7 +936,7 @@ footer {
   width: 100vw;
   height: 60px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #333333;
 }
@@ -887,12 +944,38 @@ footer h6 {
   margin: 20px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 0.85rem;
   text-transform: none;
   letter-spacing: 1.5px;
+  color: #fff;
+}
+footer h6 a {
+  text-decoration: none;
+}
+footer h6 span {
+  font-weight: 500;
   color: #009DDF;
 }
 
+@media screen and (max-width: 1250px) {
+  .about .title, .services .title, .contact .title {
+    height: calc(100px + 10vh);
+  }
+  .about .title h4, .services .title h4, .contact .title h4 {
+    font-size: 10rem;
+    font-size: 16.6666666667vw;
+  }
+  .about .mission, .services .mission, .contact .mission {
+    width: 70vw;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    height: 200px;
+    margin: 0;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    font-size: 1.5rem;
+  }
+}
 @media screen and (max-width: 1100px) {
   .nav-bar .nav-menu {
     display: none;
@@ -900,5 +983,467 @@ footer h6 {
   .nav-bar .menu-mobile {
     display: flex;
     cursor: pointer;
+  }
+  .home h3.slogan {
+    top: 160px;
+  }
+}
+@media screen and (max-width: 900px) {
+  body .nav-bar {
+    padding: 0 30px;
+  }
+  body .nav-bar .menu-mobile {
+    right: 20px;
+  }
+  .home h3.slogan {
+    width: 60vw;
+    top: 160px;
+    font-size: 2.3rem;
+  }
+  .home .buttons .button {
+    margin: 0 50px;
+  }
+  .about .back-navbar, .services .back-navbar, .contact .back-navbar {
+    height: 8vh;
+  }
+  .about .title, .services .title, .contact .title {
+    height: calc(70px + 10vh);
+  }
+  .about h5, .services h5, .contact h5 {
+    font-size: 1.1rem;
+  }
+  .about .mission, .services .mission, .contact .mission {
+    width: 80vw;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    margin: 0;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    margin-left: 50px;
+    font-size: 1.4rem;
+  }
+  .about .form-contact, .services .form-contact, .contact .form-contact {
+    width: 90vw;
+  }
+  .about .form-contact label input, .about .form-contact label .submit, .services .form-contact label input, .services .form-contact label .submit, .contact .form-contact label input, .contact .form-contact label .submit {
+    height: 45px;
+  }
+  .about .form-contact label textarea, .services .form-contact label textarea, .contact .form-contact label textarea {
+    height: 122px;
+  }
+  .about .data-contact, .services .data-contact, .contact .data-contact {
+    width: 90vw;
+  }
+  .about .data-contact .brand img, .services .data-contact .brand img, .contact .data-contact .brand img {
+    width: 50px;
+  }
+  .about .data-contact .brand .brand-name .name, .services .data-contact .brand .brand-name .name, .contact .data-contact .brand .brand-name .name {
+    font-size: 2.2rem;
+  }
+  .about .data-contact .brand .brand-name .line-work, .services .data-contact .brand .brand-name .line-work, .contact .data-contact .brand .brand-name .line-work {
+    font-size: 0.9rem;
+    margin-left: 1px;
+  }
+  .about .data-contact .data, .services .data-contact .data, .contact .data-contact .data {
+    width: 90%;
+    margin-left: 20px;
+  }
+  .about .data-contact .data .phones .phones-data h4,
+.about .data-contact .data .location .location-data h4,
+.about .data-contact .data .social-net h4, .services .data-contact .data .phones .phones-data h4,
+.services .data-contact .data .location .location-data h4,
+.services .data-contact .data .social-net h4, .contact .data-contact .data .phones .phones-data h4,
+.contact .data-contact .data .location .location-data h4,
+.contact .data-contact .data .social-net h4 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .float {
+    width: 40px;
+    height: 40px;
+    right: 20px;
+  }
+  .my-float {
+    margin-top: 6px;
+  }
+  body .arrow-top {
+    bottom: 120px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .nav-bar .menu-mobile .disclose-menu ul li a {
+    font-size: 1.5rem;
+  }
+  .home .buttons .button {
+    width: 180px;
+    height: 40px;
+    margin: 0 30px;
+    font-size: 1.1rem;
+  }
+  .about .title, .services .title, .contact .title {
+    height: calc(50px + 10vh);
+  }
+  .about h5, .services h5, .contact h5 {
+    width: 80vw;
+    text-align: center;
+  }
+  .about .mission, .services .mission, .contact .mission {
+    width: 80vw;
+    margin-top: 30px;
+    flex-direction: column;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    height: 160px;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    margin: 20px;
+  }
+  .about .form-contact, .services .form-contact, .contact .form-contact {
+    width: 90vw;
+  }
+  .about .form-contact label input, .about .form-contact label .submit, .services .form-contact label input, .services .form-contact label .submit, .contact .form-contact label input, .contact .form-contact label .submit {
+    height: 45px;
+  }
+  .about .form-contact label textarea, .services .form-contact label textarea, .contact .form-contact label textarea {
+    height: 122px;
+  }
+  .about .data-contact, .services .data-contact, .contact .data-contact {
+    width: 90vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 5vh;
+  }
+  .about .data-contact .data, .services .data-contact .data, .contact .data-contact .data {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .about .data-contact .data .phones, .about .data-contact .data .location, .about .data-contact .data .social-net, .services .data-contact .data .phones, .services .data-contact .data .location, .services .data-contact .data .social-net, .contact .data-contact .data .phones, .contact .data-contact .data .location, .contact .data-contact .data .social-net {
+    margin: 20px 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .about .data-contact .data .phones .phones-data, .about .data-contact .data .location .phones-data, .about .data-contact .data .social-net .phones-data, .services .data-contact .data .phones .phones-data, .services .data-contact .data .location .phones-data, .services .data-contact .data .social-net .phones-data, .contact .data-contact .data .phones .phones-data, .contact .data-contact .data .location .phones-data, .contact .data-contact .data .social-net .phones-data {
+    justify-content: center;
+  }
+  .about .data-contact .data .phones .phones-data h4, .about .data-contact .data .phones .phones-data h5, .about .data-contact .data .location .phones-data h4, .about .data-contact .data .location .phones-data h5, .about .data-contact .data .social-net .phones-data h4, .about .data-contact .data .social-net .phones-data h5, .services .data-contact .data .phones .phones-data h4, .services .data-contact .data .phones .phones-data h5, .services .data-contact .data .location .phones-data h4, .services .data-contact .data .location .phones-data h5, .services .data-contact .data .social-net .phones-data h4, .services .data-contact .data .social-net .phones-data h5, .contact .data-contact .data .phones .phones-data h4, .contact .data-contact .data .phones .phones-data h5, .contact .data-contact .data .location .phones-data h4, .contact .data-contact .data .location .phones-data h5, .contact .data-contact .data .social-net .phones-data h4, .contact .data-contact .data .social-net .phones-data h5 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  .about .data-contact .data .phones .location-data, .about .data-contact .data .location .location-data, .about .data-contact .data .social-net .location-data, .services .data-contact .data .phones .location-data, .services .data-contact .data .location .location-data, .services .data-contact .data .social-net .location-data, .contact .data-contact .data .phones .location-data, .contact .data-contact .data .location .location-data, .contact .data-contact .data .social-net .location-data {
+    justify-content: center;
+  }
+  .about .data-contact .data .phones .location-data h4, .about .data-contact .data .phones .location-data h5, .about .data-contact .data .location .location-data h4, .about .data-contact .data .location .location-data h5, .about .data-contact .data .social-net .location-data h4, .about .data-contact .data .social-net .location-data h5, .services .data-contact .data .phones .location-data h4, .services .data-contact .data .phones .location-data h5, .services .data-contact .data .location .location-data h4, .services .data-contact .data .location .location-data h5, .services .data-contact .data .social-net .location-data h4, .services .data-contact .data .social-net .location-data h5, .contact .data-contact .data .phones .location-data h4, .contact .data-contact .data .phones .location-data h5, .contact .data-contact .data .location .location-data h4, .contact .data-contact .data .location .location-data h5, .contact .data-contact .data .social-net .location-data h4, .contact .data-contact .data .social-net .location-data h5 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .about .data-contact .data .phones .phones-data h4,
+.about .data-contact .data .location .location-data h4,
+.about .data-contact .data .social-net h4, .services .data-contact .data .phones .phones-data h4,
+.services .data-contact .data .location .location-data h4,
+.services .data-contact .data .social-net h4, .contact .data-contact .data .phones .phones-data h4,
+.contact .data-contact .data .location .location-data h4,
+.contact .data-contact .data .social-net h4 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 560px) {
+  body .nav-bar {
+    padding: 0 20px;
+  }
+  body .nav-bar .menu-mobile {
+    right: 20px;
+  }
+  .home h3.slogan {
+    width: 70vw;
+    font-size: 2rem;
+  }
+  .home .buttons {
+    bottom: 60px;
+    flex-direction: column;
+  }
+  .home .buttons .button {
+    width: 180px;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+  }
+  .about .back-navbar, .services .back-navbar, .contact .back-navbar {
+    height: 6vh;
+  }
+  .about .title, .services .title, .contact .title {
+    height: calc(30px + 10vh);
+  }
+  .about .mission, .services .mission, .contact .mission {
+    width: 80vw;
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    height: 130px;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    margin: 20px;
+    font-size: 1.2rem;
+  }
+  .about .form-contact, .services .form-contact, .contact .form-contact {
+    width: 90vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    align-items: center;
+  }
+  .about .form-contact label, .services .form-contact label, .contact .form-contact label {
+    width: 80vw;
+    min-width: 200px;
+  }
+  .about .form-contact label input, .about .form-contact label .submit, .services .form-contact label input, .services .form-contact label .submit, .contact .form-contact label input, .contact .form-contact label .submit {
+    height: 45px;
+  }
+  .about .form-contact label textarea, .services .form-contact label textarea, .contact .form-contact label textarea {
+    height: 122px;
+  }
+  .about .data-contact, .services .data-contact, .contact .data-contact {
+    width: 90vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 5vh;
+  }
+  .about .data-contact .data, .services .data-contact .data, .contact .data-contact .data {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .about .data-contact .data .phones, .about .data-contact .data .location, .about .data-contact .data .social-net, .services .data-contact .data .phones, .services .data-contact .data .location, .services .data-contact .data .social-net, .contact .data-contact .data .phones, .contact .data-contact .data .location, .contact .data-contact .data .social-net {
+    margin: 20px 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .about .data-contact .data .phones .phones-data, .about .data-contact .data .location .phones-data, .about .data-contact .data .social-net .phones-data, .services .data-contact .data .phones .phones-data, .services .data-contact .data .location .phones-data, .services .data-contact .data .social-net .phones-data, .contact .data-contact .data .phones .phones-data, .contact .data-contact .data .location .phones-data, .contact .data-contact .data .social-net .phones-data {
+    justify-content: center;
+  }
+  .about .data-contact .data .phones .phones-data h4, .about .data-contact .data .phones .phones-data h5, .about .data-contact .data .location .phones-data h4, .about .data-contact .data .location .phones-data h5, .about .data-contact .data .social-net .phones-data h4, .about .data-contact .data .social-net .phones-data h5, .services .data-contact .data .phones .phones-data h4, .services .data-contact .data .phones .phones-data h5, .services .data-contact .data .location .phones-data h4, .services .data-contact .data .location .phones-data h5, .services .data-contact .data .social-net .phones-data h4, .services .data-contact .data .social-net .phones-data h5, .contact .data-contact .data .phones .phones-data h4, .contact .data-contact .data .phones .phones-data h5, .contact .data-contact .data .location .phones-data h4, .contact .data-contact .data .location .phones-data h5, .contact .data-contact .data .social-net .phones-data h4, .contact .data-contact .data .social-net .phones-data h5 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  .about .data-contact .data .phones .location-data, .about .data-contact .data .location .location-data, .about .data-contact .data .social-net .location-data, .services .data-contact .data .phones .location-data, .services .data-contact .data .location .location-data, .services .data-contact .data .social-net .location-data, .contact .data-contact .data .phones .location-data, .contact .data-contact .data .location .location-data, .contact .data-contact .data .social-net .location-data {
+    justify-content: center;
+  }
+  .about .data-contact .data .phones .location-data h4, .about .data-contact .data .phones .location-data h5, .about .data-contact .data .location .location-data h4, .about .data-contact .data .location .location-data h5, .about .data-contact .data .social-net .location-data h4, .about .data-contact .data .social-net .location-data h5, .services .data-contact .data .phones .location-data h4, .services .data-contact .data .phones .location-data h5, .services .data-contact .data .location .location-data h4, .services .data-contact .data .location .location-data h5, .services .data-contact .data .social-net .location-data h4, .services .data-contact .data .social-net .location-data h5, .contact .data-contact .data .phones .location-data h4, .contact .data-contact .data .phones .location-data h5, .contact .data-contact .data .location .location-data h4, .contact .data-contact .data .location .location-data h5, .contact .data-contact .data .social-net .location-data h4, .contact .data-contact .data .social-net .location-data h5 {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .about .data-contact .data .phones .phones-data h4,
+.about .data-contact .data .location .location-data h4,
+.about .data-contact .data .social-net h4, .services .data-contact .data .phones .phones-data h4,
+.services .data-contact .data .location .location-data h4,
+.services .data-contact .data .social-net h4, .contact .data-contact .data .phones .phones-data h4,
+.contact .data-contact .data .location .location-data h4,
+.contact .data-contact .data .social-net h4 {
+    font-size: 1rem;
+  }
+  .services .cards-services .card {
+    min-width: 300px;
+    height: 200px;
+  }
+  .services .cards-services .card img {
+    width: 40px;
+    height: 40px;
+    margin-top: 8px;
+  }
+  .services .cards-services .card h5 {
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+  .services .cards-services .card p {
+    width: 90%;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 415px) {
+  body .nav-bar {
+    padding: 0 10px;
+  }
+  body .nav-bar .brand img {
+    display: none;
+  }
+  body .nav-bar .brand .brand-name .name-logo {
+    font-size: 1.8rem;
+  }
+  body .nav-bar .brand .brand-name .line-work {
+    margin-top: -5px;
+    font-size: 0.75rem;
+  }
+  body .nav-bar .menu-mobile {
+    top: 8px;
+    right: 10px;
+  }
+  body .nav-bar .menu-mobile span {
+    height: 3px;
+    min-height: 3px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(1) {
+    width: 30px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(2) {
+    width: 30px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(3) {
+    width: 20px;
+  }
+  body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(10px, 10px);
+    -webkit-transform: rotatez(45deg) translate(10px, 10px);
+    -moz-transform: rotatez(45deg) translate(10px, 10px);
+    -ms-transform: rotatez(45deg) translate(10px, 10px);
+    -o-transform: rotatez(45deg) translate(10px, 10px);
+  }
+  .home h3.slogan {
+    width: 80vw;
+    font-size: 2rem;
+  }
+  .home .buttons {
+    bottom: 40px;
+  }
+  .home .buttons .button {
+    width: 150px;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+  }
+  .about .title, .services .title, .contact .title {
+    height: calc(20px + 10vh);
+  }
+  .about h5, .services h5, .contact h5 {
+    font-size: 0.9rem;
+  }
+  .about .mission, .services .mission, .contact .mission {
+    width: 80vw;
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    height: 130px;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    margin: 20px;
+    font-size: 1.1rem;
+  }
+  .about .data-contact .brand img, .services .data-contact .brand img, .contact .data-contact .brand img {
+    width: 40px;
+  }
+  .about .data-contact .brand .brand-name .name, .services .data-contact .brand .brand-name .name, .contact .data-contact .brand .brand-name .name {
+    font-size: 1.8rem;
+  }
+  .about .data-contact .brand .brand-name .line-work, .services .data-contact .brand .brand-name .line-work, .contact .data-contact .brand .brand-name .line-work {
+    font-size: 0.68rem;
+    margin-left: 1px;
+  }
+}
+@media screen and (max-width: 350px) {
+  body .nav-bar {
+    padding: 0 5px;
+  }
+  body .nav-bar .brand img {
+    display: none;
+  }
+  body .nav-bar .brand .brand-name .name-logo {
+    margin-top: 5px;
+    font-size: 1.5rem;
+  }
+  body .nav-bar .brand .brand-name .line-work {
+    margin-top: -5px;
+    font-size: 0.58rem;
+  }
+  body .nav-bar .menu-mobile {
+    top: 10px;
+    right: 5px;
+  }
+  body .nav-bar .menu-mobile span {
+    height: 3px;
+    min-height: 3px;
+    margin: 5px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(1) {
+    width: 30px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(2) {
+    width: 30px;
+  }
+  body .nav-bar .menu-mobile span:nth-of-type(3) {
+    width: 20px;
+  }
+  body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(9px, 9px);
+    -webkit-transform: rotatez(45deg) translate(9px, 9px);
+    -moz-transform: rotatez(45deg) translate(9px, 9px);
+    -ms-transform: rotatez(45deg) translate(9px, 9px);
+    -o-transform: rotatez(45deg) translate(9px, 9px);
+  }
+  .home h3.slogan {
+    width: 80vw;
+    font-size: 1.6rem;
+  }
+  .about .title, .services .title, .contact .title {
+    height: calc(10px + 10vh);
+  }
+  .about h5, .services h5, .contact h5 {
+    font-size: 0.7rem;
+  }
+  .about .mission img, .services .mission img, .contact .mission img {
+    height: 110px;
+  }
+  .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
+    font-size: 0.9rem;
+  }
+  .about .data-contact .brand img, .services .data-contact .brand img, .contact .data-contact .brand img {
+    width: 30px;
+  }
+  .about .data-contact .brand .brand-name .name, .services .data-contact .brand .brand-name .name, .contact .data-contact .brand .brand-name .name {
+    font-size: 1.5rem;
+  }
+  .about .data-contact .brand .brand-name .line-work, .services .data-contact .brand .brand-name .line-work, .contact .data-contact .brand .brand-name .line-work {
+    font-size: 0.52rem;
+    margin-left: 1px;
+  }
+  .services .cards-services .card {
+    min-width: 240px;
+    height: 240px;
+  }
+  .services .cards-services .card img {
+    width: 40px;
+    height: 40px;
+    margin-top: 8px;
+  }
+  .services .cards-services .card h5 {
+    width: 200px;
+    font-size: 1.2rem;
+    margin-top: 8px;
+  }
+  .services .cards-services .card p {
+    width: 90%;
+    font-size: 0.8rem;
   }
 }/*# sourceMappingURL=app.css.map */
