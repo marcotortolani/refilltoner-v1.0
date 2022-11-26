@@ -1299,6 +1299,7 @@ footer h6 span {
     right: 10px;
   }
   body .nav-bar .menu-mobile span {
+    z-index: 300000000;
     height: 3px;
     min-height: 3px;
   }
@@ -1381,6 +1382,7 @@ footer h6 span {
     right: 5px;
   }
   body .nav-bar .menu-mobile span {
+    z-index: 300000000;
     height: 3px;
     min-height: 3px;
     margin: 5px;

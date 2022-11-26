@@ -326,7 +326,7 @@ body{
                 display: none;
             }
 
-            
+           
 
             span{
                 //background: #4C9AD3;
@@ -1764,6 +1764,7 @@ footer{
             top: 8px;
             right: 10px;
             span{
+                z-index: 300000000;
                 height: 3px;
                 min-height: 3px;
 
@@ -1876,6 +1877,7 @@ footer{
             right: 5px;
             
             span{
+                z-index: 300000000;
                 height: 3px;
                 min-height: 3px;
                 margin: 5px;
