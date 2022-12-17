@@ -20,6 +20,7 @@
   }
   100% {
     top: 0px;
+    display: flex;
   }
 }
 @keyframes sliceDownNavBar {
@@ -28,6 +29,7 @@
   }
   100% {
     top: 0px;
+    display: flex;
   }
 }
 @-webkit-keyframes sliceUpNavBar {
@@ -36,6 +38,7 @@
   }
   100% {
     top: -500px;
+    display: none;
   }
 }
 @keyframes sliceUpNavBar {
@@ -44,6 +47,7 @@
   }
   100% {
     top: -500px;
+    display: none;
   }
 }
 * {
@@ -253,28 +257,42 @@ body .nav-bar .nav-menu ul li a:click {
 }
 body .nav-bar {
   /* *****************************************************************/
-  /* **************************************************************** */
+  transition: background 250ms;
+  -webkit-transition: background 250ms;
+  -moz-transition: background 250ms;
+  -ms-transition: background 250ms;
+  -o-transition: background 250ms;
 }
 body .nav-bar .menu-mobile {
   width: 50px;
   height: 50px;
   position: fixed;
-  top: 5px;
+  top: 500px;
   right: 50px;
-  z-index: 2000000;
+  z-index: 20000;
   flex-direction: column;
 }
 body .nav-bar .menu-mobile .disclose-menu {
   display: none;
 }
+body .nav-bar .menu-mobile .show-menu-mobile {
+  display: flex;
+}
+body .nav-bar .menu-mobile .hide-menu-mobile {
+  animation: sliceUpNavBar 1000ms ease 0s normal;
+  -webkit-animation: sliceUpNavBar 1000ms ease 0s normal;
+}
+body .nav-bar .menu-mobile .show-menu-mobile {
+  animation: sliceDownNavBar 1000ms ease 0s normal;
+  -webkit-animation: sliceDownNavBar 1000ms ease 0s normal;
+}
 body .nav-bar .menu-mobile span {
-  z-index: 2000000;
+  z-index: 3000000;
   background: #fff;
   border-radius: 10px;
   height: 5px;
   min-height: 5px;
   margin: 6px 0;
-  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 body .nav-bar .menu-mobile span:nth-of-type(1) {
   width: 40px;
@@ -300,11 +318,6 @@ body .nav-bar .menu-mobile input[type=checkbox]:checked ~ span:nth-of-type(3) {
   transform-origin: bottom;
   width: 50%;
   transform: translate(20px, -12px) rotateZ(45deg) rotateY(90deg);
-}
-body .nav-bar .menu-mobile input[type=checkbox]:checked ~ .disclose-menu {
-  display: flex;
-  animation: discloseMenu 1s ease 0s 1 normal forwards;
-  -webkit-animation: discloseMenu 1s ease 0s 1 normal forwards;
 }
 body .nav-bar .disclose-menu {
   /*display: none;
@@ -365,20 +378,20 @@ body .nav-bar .disclose-menu ul li a :hover {
 }
 body .nav-gray {
   z-index: 200;
-  background: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 body .hide {
-  opacity: 0;
+  display: none;
 }
 body .sliceDown {
-  animation: sliceDownNavBar 250ms ease-in-out normal;
-  -webkit-animation: sliceDownNavBar 250ms ease-in-out normal;
+  animation: sliceDownNavBar 500ms ease-in-out normal;
+  -webkit-animation: sliceDownNavBar 500ms ease-in-out normal;
 }
 body .sliceUp {
-  animation: sliceUpNavBar 250ms ease-in-out normal;
-  -webkit-animation: sliceUpNavBar 250ms ease-in-out normal;
+  animation: sliceUpNavBar 500ms ease-in-out normal;
+  -webkit-animation: sliceUpNavBar 500ms ease-in-out normal;
 }
 
 .home,
@@ -561,7 +574,6 @@ body .sliceUp {
 }
 .about .mission .paragraphs .paragraph-01, .about .mission .paragraphs .paragraph-02 {
   margin: 10px 0;
-  text-align: justify;
 }
 
 .services {
@@ -977,10 +989,11 @@ footer h6 span {
   }
 }
 @media screen and (max-width: 1100px) {
-  .nav-bar .nav-menu {
+  body .nav-bar .nav-menu {
     display: none;
   }
-  .nav-bar .menu-mobile {
+  body .nav-bar .menu-mobile {
+    top: 8px;
     display: flex;
     cursor: pointer;
   }
@@ -1099,6 +1112,7 @@ footer h6 span {
   }
   .about .mission .paragraphs, .services .mission .paragraphs, .contact .mission .paragraphs {
     margin: 20px;
+    text-align: center;
   }
   .about .form-contact, .services .form-contact, .contact .form-contact {
     width: 90vw;

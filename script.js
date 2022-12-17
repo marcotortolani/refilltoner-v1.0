@@ -4,14 +4,44 @@ const logoBrand = document.getElementById("logo");
 const lineWork = document.querySelector(".line-work");
 const arrowTop = document.querySelector(".arrow-top");
 
+const buttonBurguerMenu = document.getElementById("menu-mobile");
 
 let scrollYBefore = 0;
 
+buttonBurguerMenu.addEventListener("click", e => {
+    if (e.target.checked) {
+        //console.log("abre menu mobile");
+        navBar.classList.remove("nav-gray");
+        buttonBurguerMenu.parentElement.children[4].classList.remove("hide-menu-mobile");
+        buttonBurguerMenu.parentElement.children[4].classList.add("show-menu-mobile");
+        
+       // buttonBurguerMenu.parentElement.classList.remove(".slice-up-menu-mobile");
+        //buttonBurguerMenu.parentElement.classList.add(".slice-down-menu-mobile");
+
+        //buttonBurguerMenu.parentElement.children[4].classList.add("show-menu-mobile");
+
+    }else{
+        //console.log("cierra menu mobile");
+        navBar.classList.add("nav-gray");
+        buttonBurguerMenu.parentElement.children[4].classList.remove("show-menu-mobile");
+        buttonBurguerMenu.parentElement.children[4].classList.add("hide-menu-mobile");
+        
+        //buttonBurguerMenu.parentElement.classList.remove(".slice-down-menu-mobile");
+        //buttonBurguerMenu.parentElement.classList.add(".slice-up-menu-mobile");
+    }
+})
+
 const changeNavBar = (e) =>{
-    // console.log(window.scrollY);
+    console.log(window.scrollY);
     // console.log("dentro de la funcion");
     // console.log(e);
 
+    buttonBurguerMenu.checked = false;
+    buttonBurguerMenu.parentElement.children[4].classList.remove("show-menu-mobile");
+    buttonBurguerMenu.parentElement.children[4].classList.add("hide-menu-mobile");
+   
+        
+    
 
     if(window.scrollY >= scrollYBefore ){
         scrollYBefore = window.scrollY;
@@ -20,7 +50,11 @@ const changeNavBar = (e) =>{
             
             navBar.classList.remove("sliceDown");
             navBar.classList.add("sliceUp");
-            navBar.classList.add("hide");
+            
+            setTimeout(() => {
+                navBar.classList.add("hide");    
+            }, 250);
+            
         }
         
     }else{
@@ -54,8 +88,6 @@ const changeNavBar = (e) =>{
 
 
 }
-
-    
 
 
 window.addEventListener("scroll", e => changeNavBar(e));
