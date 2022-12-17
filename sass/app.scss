@@ -861,7 +861,7 @@ body{
 }
 
 .services{
-    //height: fit-content;
+//    height: fit-content;
     background-color: $colorBack;
     display: flex;
     flex-direction: column;
@@ -1341,6 +1341,15 @@ footer{
 
 // MEDIA QUERIES - RESPONSIVE
 
+@media screen and (max-width: 1320px) {
+
+    .services{
+        height: fit-content;
+    }
+
+}
+
+
 @media screen and (max-width: 1250px) {
 
     .about, .services, .contact{
@@ -1626,6 +1635,28 @@ footer{
         }
     }
 
+    .contact{
+        height: fit-content;
+
+        .data-contact{
+            align-items: center;
+
+            .data{
+                flex-direction: column;
+                align-items: center;
+
+                .phones, .location, .social-icons{
+                    a{
+                        img{
+                            height: 40px;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+
     
 
 }
@@ -1726,7 +1757,7 @@ footer{
                 margin: 0 auto ;
                 //margin: 10vh 0;
                 flex-direction: column;
-                align-items: flex-start;
+                //align-items: flex-start;
                 flex-wrap: wrap;
 
                 .phones, .location, .social-net{

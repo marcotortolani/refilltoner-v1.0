@@ -968,6 +968,13 @@ footer h6 span {
   color: #009DDF;
 }
 
+@media screen and (max-width: 1320px) {
+  .services {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
 @media screen and (max-width: 1250px) {
   .about .title, .services .title, .contact .title {
     height: calc(100px + 10vh);
@@ -1169,6 +1176,21 @@ footer h6 span {
 .contact .data-contact .data .social-net h4 {
     font-size: 1rem;
   }
+  .contact {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .contact .data-contact {
+    align-items: center;
+  }
+  .contact .data-contact .data {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact .data-contact .data .phones a img, .contact .data-contact .data .location a img, .contact .data-contact .data .social-icons a img {
+    height: 40px;
+  }
 }
 @media screen and (max-width: 560px) {
   body .nav-bar {
@@ -1239,7 +1261,6 @@ footer h6 span {
     height: fit-content;
     margin: 0 auto;
     flex-direction: column;
-    align-items: flex-start;
     flex-wrap: wrap;
   }
   .about .data-contact .data .phones, .about .data-contact .data .location, .about .data-contact .data .social-net, .services .data-contact .data .phones, .services .data-contact .data .location, .services .data-contact .data .social-net, .contact .data-contact .data .phones, .contact .data-contact .data .location, .contact .data-contact .data .social-net {
