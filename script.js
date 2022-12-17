@@ -32,7 +32,7 @@ buttonBurguerMenu.addEventListener("click", e => {
 })
 
 const changeNavBar = (e) =>{
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     // console.log("dentro de la funcion");
     // console.log(e);
 
