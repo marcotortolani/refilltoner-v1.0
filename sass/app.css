@@ -1028,7 +1028,9 @@ footer h6 span {
     height: calc(70px + 10vh);
   }
   .about h5, .services h5, .contact h5 {
-    font-size: 1.1rem;
+    width: 80%;
+    font-size: 1.3rem;
+    text-align: center;
   }
   .about .mission, .services .mission, .contact .mission {
     width: 80vw;
