@@ -1190,6 +1190,13 @@ body{
                 img{
                     height: 30px;
                     margin-top: 6px;
+                    &:hover{
+                        transform: scale(1.5);
+                        -webkit-transform: scale(1.5);
+                        -moz-transform: scale(1.5);
+                        -ms-transform: scale(1.5);
+                        -o-transform: scale(1.5);
+                    }
                 }
                 .phones-data{
                     margin: 0;

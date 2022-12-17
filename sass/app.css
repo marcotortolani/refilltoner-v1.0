@@ -845,6 +845,13 @@ body .sliceUp {
   height: 30px;
   margin-top: 6px;
 }
+.contact .data-contact .data .phones img:hover {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
 .contact .data-contact .data .phones .phones-data {
   margin: 0;
   margin-left: 20px;
