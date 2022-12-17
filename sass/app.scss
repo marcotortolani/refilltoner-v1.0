@@ -616,7 +616,7 @@ body{
     width: 100vw;
     height: 100vh;
     min-height: 800px;
-    max-height: 1200px;
+    //max-height: 1200px;
 
     .back-navbar{
         //z-index: 100;
@@ -861,7 +861,7 @@ body{
 }
 
 .services{
-//    height: fit-content;
+    //height: fit-content;
     background-color: $colorBack;
     display: flex;
     flex-direction: column;
@@ -1343,7 +1343,7 @@ footer{
 
 @media screen and (max-width: 1320px) {
 
-    .services{
+    .services, .contact{
         height: fit-content;
     }
 
@@ -1492,6 +1492,7 @@ footer{
             }
         }
     }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -1800,6 +1801,7 @@ footer{
         }
 
     }
+
     .services{
         .cards-services{
             .card{

@@ -401,7 +401,6 @@ body .sliceUp {
   width: 100vw;
   height: 100vh;
   min-height: 800px;
-  max-height: 1200px;
 }
 .home .back-navbar,
 .about .back-navbar,
@@ -969,7 +968,7 @@ footer h6 span {
 }
 
 @media screen and (max-width: 1320px) {
-  .services {
+  .services, .contact {
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
