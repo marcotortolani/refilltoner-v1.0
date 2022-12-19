@@ -397,7 +397,8 @@ body .sliceUp {
 .home,
 .about,
 .services,
-.contact {
+.contact,
+.thanks {
   width: 100vw;
   height: 100vh;
   min-height: 800px;
@@ -405,7 +406,8 @@ body .sliceUp {
 .home .back-navbar,
 .about .back-navbar,
 .services .back-navbar,
-.contact .back-navbar {
+.contact .back-navbar,
+.thanks .back-navbar {
   width: 100vw;
   height: 10vh;
   position: absolute;
@@ -967,6 +969,67 @@ footer h6 span {
   color: #009DDF;
 }
 
+.thanks {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 2vh 0;
+  overflow: hidden;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.thanks .brand {
+  display: flex;
+  align-items: center;
+}
+.thanks .brand img {
+  width: 60px;
+  margin: 20px;
+}
+.thanks .brand .brand-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.thanks .brand .brand-name .name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+}
+.thanks .brand .brand-name .line-work {
+  margin-top: -6px;
+  margin-left: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 100;
+  letter-spacing: 3.5px;
+  color: #fff;
+}
+.thanks h3 {
+  width: 80vw;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+}
+.thanks .title {
+  margin: 5vh 0;
+  font-weight: 400;
+}
+.thanks .text {
+  max-width: 400px;
+  margin: 20px 0;
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+.thanks lottie-player {
+  width: 60vw;
+  max-width: 300px;
+}
+
 @media screen and (max-width: 1320px) {
   .services, .contact {
     height: -webkit-fit-content;
@@ -1314,6 +1377,20 @@ footer h6 span {
     width: 90%;
     font-size: 1rem;
   }
+  .thanks .brand img {
+    width: 50px;
+    margin: 20px;
+    margin-left: 0;
+  }
+  .thanks .brand .brand-name .name {
+    font-size: 2.5rem;
+  }
+  .thanks .brand .brand-name .line-work {
+    margin-top: -6px;
+    margin-left: 2px;
+    font-size: 1.07rem;
+    letter-spacing: 3.5px;
+  }
 }
 @media screen and (max-width: 415px) {
   body .nav-bar {
@@ -1395,6 +1472,20 @@ footer h6 span {
   .about .data-contact .brand .brand-name .line-work, .services .data-contact .brand .brand-name .line-work, .contact .data-contact .brand .brand-name .line-work {
     font-size: 0.68rem;
     margin-left: 1px;
+  }
+  .thanks .brand img {
+    width: 45px;
+    margin: 20px 10px;
+    margin-left: 0;
+  }
+  .thanks .brand .brand-name .name {
+    font-size: 2.2rem;
+  }
+  .thanks .brand .brand-name .line-work {
+    margin-top: -6px;
+    margin-left: 2px;
+    font-size: 0.9rem;
+    letter-spacing: 3.5px;
   }
 }
 @media screen and (max-width: 350px) {
@@ -1482,5 +1573,19 @@ footer h6 span {
   .services .cards-services .card p {
     width: 90%;
     font-size: 1rem;
+  }
+  .thanks .brand img {
+    width: 40px;
+    margin: 20px 10px;
+    margin-left: 0;
+  }
+  .thanks .brand .brand-name .name {
+    font-size: 2rem;
+  }
+  .thanks .brand .brand-name .line-work {
+    margin-top: -6px;
+    margin-left: 1px;
+    font-size: 0.79rem;
+    letter-spacing: 3.5px;
   }
 }/*# sourceMappingURL=app.css.map */

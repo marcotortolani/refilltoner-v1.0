@@ -612,7 +612,8 @@ body{
 .home,
 .about,
 .services,
-.contact{
+.contact,
+.thanks{
     width: 100vw;
     height: 100vh;
     min-height: 800px;
@@ -1303,14 +1304,17 @@ body{
 footer{
     width: 100vw;
     height: 60px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    //align-items: flex-start;
 
     //background-color: $colorBackTitle;
     //background-color: $colorMagenta;
     //background-color: $colorBackHome;
     background-color: $colorBack;
+    //background-color: #25d366;
 
     h6{
         margin: 20px;
@@ -1332,6 +1336,79 @@ footer{
 }
 
 
+.thanks{
+    height: fit-content;
+    margin: 2vh 0;
+    overflow: hidden;
+
+    background-color: $colorBack;
+    display: flex;
+    flex-direction: column;
+    //justify-content: space-around;
+    align-items: center;
+
+    .brand{
+        // width: 80vw;
+        // max-width: 400px;
+        
+        display: flex;
+        
+        align-items: center;
+        img{
+            width: 60px;
+            margin: 20px;
+            
+        }
+        .brand-name{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .name{
+                font-family: $fontText;
+                font-size: 3rem;
+                font-weight: 600;
+                color: $colorText;
+            }
+            .line-work{
+                margin-top: -6px;
+                margin-left: 2px;
+                font-family: $fontText;
+                font-size: 1.35rem;
+                font-weight: 100;
+                letter-spacing: 3.5px;
+                color: $colorText;
+            }
+        }
+    }
+
+    h3{
+        width: 80vw;
+        
+        font-size: 2.2rem;
+        //font-size: calc(100vw / 6) ;
+        text-transform: uppercase;
+        text-align: center;
+        color: $colorText;
+    }
+
+    .title{
+        margin: 5vh 0;
+        font-weight: 400;
+    }
+    .text{
+        max-width: 400px;
+        margin: 20px 0;
+        font-size: 1.6rem;
+        font-weight: 100;
+    }
+
+    lottie-player{
+        width: 60vw;
+        max-width: 300px;
+    }
+    
+}
 
 
 
@@ -1825,6 +1902,33 @@ footer{
             }
         }
     }
+
+    .thanks{
+        .brand{
+            
+            img{
+                width: 50px;
+                margin: 20px;
+                margin-left: 0;
+            }
+            .brand-name{
+                   
+                .name{
+                    font-size: 2.5rem;
+                    
+                }
+                .line-work{
+                    margin-top: -6px;
+                    margin-left: 2px;
+                    
+                    font-size: 1.07rem;
+                    
+                    letter-spacing: 3.5px;
+                    
+                }
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 415px) {
@@ -1934,6 +2038,33 @@ footer{
         }
 
         
+    }
+
+    .thanks{
+        .brand{
+            
+            img{
+                width: 45px;
+                margin: 20px 10px;
+                margin-left: 0;
+            }
+            .brand-name{
+                   
+                .name{
+                    font-size: 2.2rem;
+                    
+                }
+                .line-work{
+                    margin-top: -6px;
+                    margin-left: 2px;
+                    
+                    font-size: 0.9rem;
+                    
+                    letter-spacing: 3.5px;
+                    
+                }
+            }
+        }
     }
 
 }
@@ -2060,6 +2191,33 @@ footer{
                 p{
                     width: 90%;
                     font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .thanks{
+        .brand{
+            
+            img{
+                width: 40px;
+                margin: 20px 10px;
+                margin-left: 0;
+            }
+            .brand-name{
+                   
+                .name{
+                    font-size: 2rem;
+                    
+                }
+                .line-work{
+                    margin-top: -6px;
+                    margin-left: 1px;
+                    
+                    font-size: 0.79rem;
+                    
+                    letter-spacing: 3.5px;
+                    
                 }
             }
         }
